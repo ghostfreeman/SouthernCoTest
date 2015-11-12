@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 require 'sinatra'
 require 'erb'
+require 'ankusa'
+require 'ankusa/mongo_db_storage'
 
 # Basic routing rules
 # Basic page load route. This loads the web app and its FE dependencies
