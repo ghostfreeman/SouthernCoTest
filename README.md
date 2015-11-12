@@ -11,12 +11,15 @@ companies.
 The application depends upon:
 * Sinatra
 * Ankusa
-* (Future ham/spam dataset)
 
-All these are included in the code.
 
 ## Running the application
-TBD
+1. `git clone` the codebase to a local machine with the Ruby interpreter installed
+2. run `gem install ankusa sinatra`
+
+
+For more information of code functionality, design, and so forth, refer to the
+files located in the `doc` directory.
 
 ## License
 Licesned under MIT. See LICENSE.md
