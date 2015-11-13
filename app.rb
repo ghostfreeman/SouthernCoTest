@@ -1,8 +1,16 @@
 #!/usr/bin/env ruby
 require 'sinatra'
 require 'erb'
+require 'json'
 require 'ankusa'
-require 'ankusa/mongo_db_storage'
+require 'ankusa/memory_storage' #Change back to mongo when I have a clue on how to fix it
+
+# Initalize MongoDB connection
+file = File.read('config.json')
+#settings = JSON.parse(file)new :host => settings['database']['host'], \
+#storage = Ankusa::MongoDbStorage.
+#  :port => settings['database']['port'], :db => settings['database']['database_table']
+storage = Ankusa::MemoryStorage.new
 
 # Basic routing rules
 # Basic page load route. This loads the web app and its FE dependencies
