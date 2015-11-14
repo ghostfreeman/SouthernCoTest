@@ -3,14 +3,15 @@ require 'sinatra'
 require 'erb'
 require 'json'
 require 'ankusa'
-require 'ankusa/memory_storage' #Change back to mongo when I have a clue on how to fix it
+require 'ankusa/mongo_db_storage' #Change back to mongo when I have a clue on how to fix it
 
 # Initalize MongoDB connection
 file = File.read('config.json')
-#settings = JSON.parse(file)new :host => settings['database']['host'], \
-#storage = Ankusa::MongoDbStorage.
-#  :port => settings['database']['port'], :db => settings['database']['database_table']
-storage = Ankusa::MemoryStorage.new
+settings = JSON.parse(file)
+storage = Ankusa::MongoDbStorage.new :host => settings['database']['host'], \
+  :port => settings['database']['port'], :db => settings['database']['database_table']
+#storage = Ankusa::MemoryStorage.new
+c = Ankusa::NaiveBayesClassifier.new storage
 
 # Basic routing rules
 # Basic page load route. This loads the web app and its FE dependencies
