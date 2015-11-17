@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 # This class contains handlers and methods for the Spam determining library.
-class Spamres
+class Spam
   def initalize(ankusaObj)
     @ankusaObj = ankusaObj
   end
@@ -15,10 +15,10 @@ class Spamres
   end
 
   def trainEngineWithSpam(text)
-
+    @ankusaObj.train :spam, text
   end
 
-  def trainEngineWithGood(text)
-
+  def trainEngineWithHam(text)
+    @ankusaObj.train :good, text
   end
 end
